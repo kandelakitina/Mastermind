@@ -49,9 +49,9 @@ class Board
   private
 
   def render_color(color)
-    return '*'.colorize(:light_black) unless color
+    return '0'.colorize(:light_black) unless color
 
-    '*'.colorize(color)
+    '0'.colorize(color)
   end
 
   def render_feedback(peg)
