@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require 'colorize'
+require_relative 'board'
 
 class HumanPlayer
   def provide_code
-    puts "Enter a 4-color code."
+    puts 'Enter a 4-color code.'
     Board.show_available_colors
     input_code
   end
@@ -20,13 +21,11 @@ class HumanPlayer
   def input_code
     loop do
       input = gets.chomp.downcase.strip.split
-      return input.map(&:to_sym) if input.size == 4 && input.all? { |c| valid_color?(c) }
+      symbols = input.map(&:to_sym)
+
+      return symbols if input.size == 4 && symbols.all? { |c| Board.valid_color?(c) }
 
       puts 'Invalid input. Enter 4 valid colors separated by spaces.'
     end
-  end
-
-  def valid_color?(color)
-    %w[red blue green yellow orange purple].include?(color)
   end
 end

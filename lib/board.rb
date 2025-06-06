@@ -8,11 +8,12 @@ class Board
   COLORS = %i[red green yellow blue magenta cyan].freeze
 
   def self.show_available_colors
-    print 'Available colors are: '
-    COLORS.each do |color|
-      print "#{color.to_s.colorize(color)} "
-    end
-    puts
+    print 'Available colors: '
+    puts COLORS.map { |color| color.to_s.colorize(color) }.join(' ')
+  end
+
+  def self.valid_color?(color)
+    COLORS.include?(color)
   end
 
   def initialize
@@ -48,9 +49,9 @@ class Board
   private
 
   def render_color(color)
-    return '0'.colorize(:light_black) unless color
+    return '*'.colorize(:light_black) unless color
 
-    '0'.colorize(color)
+    '*'.colorize(color)
   end
 
   def render_feedback(peg)
