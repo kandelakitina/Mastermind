@@ -3,7 +3,6 @@
 require_relative 'board'
 require_relative 'human_player'
 require_relative 'ai_player'
-require 'pry-byebug'
 
 class GameController
   def initialize
@@ -58,7 +57,7 @@ class GameController
 
       if feedback.count(:black) == 4
         puts "\n#{@code_breaker.class} guessed the code in #{turn + 1} turns!"
-        return
+        # return
       end
     end
 
