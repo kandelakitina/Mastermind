@@ -6,3 +6,5 @@ source "https://rubygems.org"
 
 gem "rubocop", "~> 1.76"
 gem "solargraph", "~> 0.55.0"
+
+gem "colorize", "~> 1.1"
